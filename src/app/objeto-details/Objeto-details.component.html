@@ -1,0 +1,67 @@
+<h5><span class="badge badge-light ">{{Objeto._id}}</span> -> {{Objeto.orderNumber}}</h5>
+<div [hidden]="submitted">
+    <form #detailObjetoForm="ngForm">
+      <div class="form-group">
+        <label for="orderNumber">orderNumber</label>
+        <input type="text" class="form-control" id="orderNumber" required
+        [(ngModel)]="Objeto.orderNumber" name="orderNumber" #orderNumber="ngModel">
+        <div [hidden]="orderNumber.valid || orderNumber.pristine"
+             class="alert alert-danger">
+             orderNumber is required
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="objectType">objectType</label>
+        <input type="text" class="form-control" id="objectType" required
+        [(ngModel)]="Objeto.objectType" name="objectType" #objectType="ngModel">
+        <div [hidden]="objectType.valid || objectType.pristine"
+             class="alert alert-danger">
+             objectType is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="objectState">objectState</label>
+        <input type="text" class="form-control" id="objectState" required
+        [(ngModel)]="Objeto.objectState" name="objectState" #objectState="ngModel">
+        <div [hidden]="objectState.valid || objectState.pristine"
+             class="alert alert-danger">
+             objectState is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="objectDescription">objectDescription</label>
+        <input type="text" class="form-control" id="objectDescription" required
+        [(ngModel)]="Objeto.objectDescription" name="objectDescription" #objectDescription="ngModel">
+        <div [hidden]="objectDescription.valid || objectDescription.pristine"
+             class="alert alert-danger">
+             objectDescription is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="objectPrice">objectPrice</label>
+        <input type="text" class="form-control" id="objectPrice" required
+        [(ngModel)]="Objeto.objectPrice" name="objectPrice" #objectPrice="ngModel">
+        <div [hidden]="objectPrice.valid || objectPrice.pristine"
+             class="alert alert-danger">
+             objectPrice is required
+        </div>
+      </div>
+
+      <div class="btn-group btn-group-sm">
+        <button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+        <button type="button" class="btn btn-dark" (click)="update()" [disabled]="!detailObjetoForm.form.valid">Update</button>
+        <button type="button" class="btn btn-dark" (click)="delete()">Delete</button>
+	    </div>
+    </form>
+</div>
+ 
+<div [hidden]="!submitted">
+    <p>{{message}}</p>
+    <div class="btn-group btn-group-sm">
+      <button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+    </div>
+</div>

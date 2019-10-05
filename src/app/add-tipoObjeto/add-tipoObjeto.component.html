@@ -1,0 +1,40 @@
+<h3>Add ObjectType</h3>
+<div [hidden]="submitted">
+    <form #addtipoObjetoForm="ngForm">
+
+      <div class="form-group">
+        <label for="orderTypeCode">orderTypeCode</label>
+        <input type="text" class="form-control" id="orderTypeCode" placeholder="tipoObjeto orderTypeCode" 
+        required
+        [(ngModel)]="tipoObjeto.orderTypeCode" name="orderTypeCode" #orderTypeCode="ngModel">
+        <div [hidden]="orderTypeCode.valid || orderTypeCode.pristine"
+             class="alert alert-danger">
+             orderTypeCode is required
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="objectTypeName">objectTypeName</label>
+        <input type="text" class="form-control" id="objectTypeName" placeholder="tipoObjeto objectTypeName"
+        required
+        [(ngModel)]="tipoObjeto.objectTypeName" name="objectTypeName" #objectTypeName="ngModel">
+        <div [hidden]="objectTypeName.valid || objectTypeName.pristine"
+             class="alert alert-danger">
+             objectTypeName is required
+        </div>
+      </div>
+      
+      <div class="btn-group btn-group-sm">
+      	<button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+      	<button type="button" class="btn btn-dark" (click)="addtipoObjeto()" [disabled]="!addtipoObjetoForm.form.valid">Add</button>
+      </div>
+    </form>
+</div>
+
+<div [hidden]="!submitted">
+  <p>Submitted Successfully! -> <span class="badge badge-light">{{tipoObjeto.orderTypeCode}}  {{tipoObjeto.objectTypeName}}</span></p>
+	<div class="btn-group btn-group-sm">
+    	<button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+    	<button type="button" class="btn btn-dark" (click)="newtipoObjeto(); addtipoObjetoForm.reset()">Continue</button>
+    </div>
+</div>

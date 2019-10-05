@@ -1,0 +1,37 @@
+<h5><span class="badge badge-light ">{{tipoObjeto._id}}</span> -> {{tipoObjeto.orderTypeCode}}</h5>
+<div [hidden]="submitted">
+    <form #detailtipoObjetoForm="ngForm">
+      <div class="form-group">
+        <label for="orderTypeCode">orderTypeCode</label>
+        <input type="text" class="form-control" id="orderTypeCode" required
+        [(ngModel)]="tipoObjeto.orderTypeCode" name="orderTypeCode" #orderTypeCode="ngModel">
+        <div [hidden]="orderTypeCode.valid || orderTypeCode.pristine"
+             class="alert alert-danger">
+             orderTypeCode is required
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="objectTypeName">objectTypeName</label>
+        <input type="text" class="form-control" id="objectTypeName" required
+        [(ngModel)]="tipoObjeto.objectTypeName" name="objectTypeName" #objectTypeName="ngModel">
+        <div [hidden]="objectTypeName.valid || objectTypeName.pristine"
+             class="alert alert-danger">
+             objectTypeName is required
+        </div>
+      </div>
+
+      <div class="btn-group btn-group-sm">
+        <button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+        <button type="button" class="btn btn-dark" (click)="update()" [disabled]="!detailtipoObjetoForm.form.valid">Update</button>
+        <button type="button" class="btn btn-dark" (click)="delete()">Delete</button>
+	    </div>
+    </form>
+</div>
+ 
+<div [hidden]="!submitted">
+    <p>{{message}}</p>
+    <div class="btn-group btn-group-sm">
+      <button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+    </div>
+</div>
