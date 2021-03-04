@@ -1,0 +1,89 @@
+<div class="container">
+<h5><span class="badge badge-light ">{{usuario[0].idusuario}}</span> -> {{usuario[0].email}}</h5>
+<div [hidden]="submitted">
+    <form #detailusuarioForm="ngForm">
+      <div class="form-group">
+        <label for="nombre">nombre</label>
+        <input type="text" class="form-control" id="nombre" required
+        [(ngModel)]="usuario[0].nombre" name="nombre" #nombre="ngModel">
+        <div [hidden]="nombre.valid || nombre.pristine"
+             class="alert alert-danger">
+             nombre is required
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="apellido">apellido</label>
+        <input type="text" class="form-control" id="apellido" required
+        [(ngModel)]="usuario[0].apellido" name="apellido" #apellido="ngModel">
+        <div [hidden]="apellido.valid || apellido.pristine"
+             class="alert alert-danger">
+             apellido is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="fnacimiento">fnacimiento</label>
+        <input type="text" class="form-control" id="fnacimiento" required
+        [(ngModel)]="usuario[0].fnacimiento" name="fnacimiento" #fnacimiento="ngModel">
+        <div [hidden]="fnacimiento.valid || fnacimiento.pristine"
+             class="alert alert-danger">
+             fnacimiento is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">email</label>
+        <input type="text" class="form-control" id="email" required
+        [(ngModel)]="usuario[0].email" name="email" #email="ngModel">
+        <div [hidden]="email.valid || email.pristine"
+             class="alert alert-danger">
+             email is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="telefono">telefono</label>
+        <input type="text" class="form-control" id="telefono" required
+        [(ngModel)]="usuario[0].telefono" name="telefono" #telefono="ngModel">
+        <div [hidden]="telefono.valid || telefono.pristine"
+             class="alert alert-danger">
+             telefono is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="contrasenia">contrasenia</label>
+        <input type="text" class="form-control" id="contrasenia" required
+        [(ngModel)]="usuario[0].contrasenia" name="contrasenia" #contrasenia="ngModel">
+        <div [hidden]="contrasenia.valid || contrasenia.pristine"
+             class="alert alert-danger">
+             contrasenia is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="imagen">imagen</label>
+        <input type="text" class="form-control" id="imagen" required
+        [(ngModel)]="usuario[0].imagen" name="imagen" #imagen="ngModel">
+        <div [hidden]="imagen.valid || imagen.pristine"
+             class="alert alert-danger">
+             imagen is required
+        </div>
+      </div>
+
+      <div class="btn-group btn-group-sm">
+        <button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+        <button type="button" class="btn btn-dark" (click)="update()" [disabled]="!detailusuarioForm.form.valid">Update</button>
+        <button type="button" class="btn btn-dark" (click)="delete()">Delete</button>
+	    </div>
+    </form>
+</div>
+ 
+<div [hidden]="!submitted">
+    <p>{{message}}</p>
+    <div class="btn-group btn-group-sm">
+      <button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+    </div>
+</div>
+</div>

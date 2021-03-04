@@ -1,49 +1,77 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { tipoObjetoComponent } from '../tipoObjeto/tipoObjeto.component';
-import { AddtipoObjetoComponent } from '../add-tipoObjeto/add-tipoObjeto.component';
-import { tipoObjetoDetailsComponent } from '../tipoObjeto-details/tipoObjeto-details.component';
-import { ObjetoComponent } from '../objeto/Objeto.component';
-import { AddObjetoComponent } from '../add-objeto/add-Objeto.component';
-import { ObjetoDetailsComponent } from '../objeto-details/Objeto-details.component';
+import { animalComponent } from '../animal/animal.component';
+import { AddAnimalComponent } from '../add-animal/add-animal.component';
+import { animalDetailsComponent } from '../animal-details/animal-details.component';
+import { usuarioComponent } from '../usuario/usuario.component';
+import { AddusuarioComponent } from '../add-usuario/add-usuario.component';
+import { usuarioDetailsComponent } from '../usuario-details/usuario-details.component';
+import { PieChartComponent } from '../pie-chart.component';
+import { administradorComponent } from '../administrador/administrador.component';
+
+import { AuthGuard } from '../auth/auth.guard';
 
 const routes: Routes = [
+  {
+    path: 'administrador',
+    component: administradorComponent
+  },
+  {
+    path: '',
+    redirectTo:'administrador',
+    pathMatch: 'full'
+  },
    { 
-     path: 'tipoObjetos', 
-     component: tipoObjetoComponent 
+     path: 'animales', 
+     component: animalComponent,
+     canActivate: [AuthGuard]
    },
    { 
-     path: 'tipoObjeto/add', 
-     component: AddtipoObjetoComponent 
+     path: 'animal/add', 
+     component: AddAnimalComponent,
+     canActivate: [AuthGuard]
    },
    { 
-     path: 'tipoObjeto/:id', 
-     component: tipoObjetoDetailsComponent 
+     path: 'animal/:idanimal', 
+     component: animalDetailsComponent,
+     canActivate: [AuthGuard]
    },
    { 
      path: '', 
-     redirectTo: 'tipoObjetos', 
+     redirectTo: 'animales', 
      pathMatch: 'full'
    },
    
    { 
-    path: 'Objetos', 
-    component: ObjetoComponent 
+    path: 'usuarios', 
+    component: usuarioComponent,
+    canActivate: [AuthGuard]
   },
   { 
-    path: 'Objeto/add', 
-    component: AddObjetoComponent 
+    path: 'usuario/add', 
+    component: AddusuarioComponent,
+    canActivate: [AuthGuard]
   },
   { 
-    path: 'Objeto/:id', 
-    component: ObjetoDetailsComponent 
+    path: 'usuario/:idusuario', 
+    component: usuarioDetailsComponent,
+    canActivate: [AuthGuard]
   },
   { 
     path: '', 
-    redirectTo: 'Objetos', 
+    redirectTo: 'usuarios', 
     pathMatch: 'full'
   },
-   
+  { 
+    path: 'chart', 
+    component: PieChartComponent,
+    canActivate: [AuthGuard]
+  },
+  { 
+    path: '', 
+    redirectTo: 'chart', 
+    pathMatch: 'full'
+  },
 ];
 
 @NgModule({

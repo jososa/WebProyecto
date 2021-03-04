@@ -1,0 +1,139 @@
+<h3>Add animal</h3>
+<div [hidden]="submitted">
+    <form #addanimalForm="ngForm">
+
+      <div class="form-group">
+        <label for="tipo">tipo</label>
+        <input type="text" class="form-control" id="tipo" placeholder="animal tipo" 
+        required
+        [(ngModel)]="animal.tipo" name="tipo" #tipo="ngModel">
+        <div [hidden]="tipo.valid || tipo.pristine"
+             class="alert alert-danger">
+             tipo is required
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="raza">raza</label>
+        <input type="text" class="form-control" id="raza" placeholder="animal raza"
+        required
+        [(ngModel)]="animal.raza" name="raza" #raza="ngModel">
+        <div [hidden]="raza.valid || raza.pristine"
+             class="alert alert-danger">
+             raza is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="genero">genero</label>
+        <input type="text" class="form-control" id="genero" placeholder="animal genero"
+        required
+        [(ngModel)]="animal.genero" name="genero" #genero="ngModel">
+        <div [hidden]="genero.valid || genero.pristine"
+             class="alert alert-danger">
+             genero is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="descripcion">descripcion</label>
+        <input type="text" class="form-control" id="descripcion" placeholder="animal descripcion"
+        required
+        [(ngModel)]="animal.descripcion" name="descripcion" #descripcion="ngModel">
+        <div [hidden]="descripcion.valid || descripcion.pristine"
+             class="alert alert-danger">
+             descripcion is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="latitud">latitud</label>
+        <input type="text" class="form-control" id="latitud" placeholder="animal latitud"
+        required
+        [(ngModel)]="animal.latitud" name="latitud" #latitud="ngModel">
+        <div [hidden]="latitud.valid || latitud.pristine"
+             class="alert alert-danger">
+             latitud is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="longitud">longitud</label>
+        <input type="text" class="form-control" id="longitud" placeholder="animal longitud"
+        required
+        [(ngModel)]="animal.longitud" name="longitud" #longitud="ngModel">
+        <div [hidden]="longitud.valid || longitud.pristine"
+             class="alert alert-danger">
+             longitud is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="estado">estado</label>
+        <input type="text" class="form-control" id="estado" placeholder="animal estado"
+        required
+        [(ngModel)]="animal.estado" name="estado" #estado="ngModel">
+        <div [hidden]="estado.valid || estado.pristine"
+             class="alert alert-danger">
+             estado is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="imagen">imagen</label>
+        <input type="text" class="form-control" id="imagen" placeholder="animal imagen"
+        required
+        [(ngModel)]="animal.imagen" name="imagen" #imagen="ngModel">
+        <div [hidden]="imagen.valid || imagen.pristine"
+             class="alert alert-danger">
+             imagen is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="idusuario">idusuario</label>
+        <input type="text" class="form-control" id="idusuario" placeholder="animal idusuario"
+        required
+        [(ngModel)]="animal.idusuario" name="idusuario" #idUsuario="ngModel">
+        <div [hidden]="idusuario.valid || idusuario.pristine"
+             class="alert alert-danger">
+             idusuario is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="fchalta">fchalta</label>
+        <input type="text" class="form-control" id="fchalta" placeholder="animal fchalta"
+        required
+        [(ngModel)]="animal.fchalta" name="fchalta" #fchalta="ngModel">
+        <div [hidden]="fchalta.valid || fchalta.pristine"
+             class="alert alert-danger">
+             fchalta is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="fchmodif">fchmodif</label>
+        <input type="text" class="form-control" id="fchmodif" placeholder="animal fchmodif"
+        required
+        [(ngModel)]="animal.fchmodif" name="fchmodif" #fchmodif="ngModel">
+        <div [hidden]="fchmodif.valid || fchmodif.pristine"
+             class="alert alert-danger">
+             fchmodif is required
+        </div>
+      </div>
+      
+      <div class="btn-group btn-group-sm">
+      	<button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+      	<button type="button" class="btn btn-dark" (click)="addanimal()" [disabled]="!addanimalForm.form.valid">Add</button>
+      </div>
+    </form>
+</div>
+
+<div [hidden]="!submitted">
+  <p>Submitted Successfully! -> <span class="badge badge-light">{{animal.tipo}}  {{animal.raza}}  {{animal.genero}}  {{animal.descripcion}}  {{animal.latitud}}  {{animal.longitud}}  {{animal.estado}}  {{animal.imagen}}  {{animal.idusuario}}  {{animal.fchalta}}  {{animal.fchmodif}}</span></p>
+	<div class="btn-group btn-group-sm">
+    	<button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+    	<button type="button" class="btn btn-dark" (click)="newanimal(); addanimalForm.reset()">Continue</button>
+    </div>
+</div>

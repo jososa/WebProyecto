@@ -1,0 +1,66 @@
+<div class="container">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
+      <a class="navbar-brand" routerLink="/">{{app_name}}</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item" *ngIf="isLogged">
+            <a class="nav-link" routerLink="/usuarios">Usuarios
+            </a>
+          </li>
+          <li class="nav-item" *ngIf="isLogged">
+            <a class="nav-link" routerLink="/animales">Animales</a>
+          </li>
+          <li class="nav-item" *ngIf="isLogged">
+            <a class="nav-link" routerLink="/chart">Reportes</a>
+          </li>
+          <li class="nav-item" *ngIf="!isLogged">
+            <a class="nav-link" routerLink="/administrador">Login
+            </a>
+          </li>
+          <li class="nav-item" *ngIf="isLogged">
+            <a href="#" class="nav-link" (click)="onLogout()">Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <h1>All Animales</h1>
+    <h1>Lista de Animales</h1>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <input type="text" class="form-control" name="filterPost" placeholder="Buscar por tipo..." [(ngModel)]="filterPost">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Tipo</th>
+                <th>Raza</th>
+                <th>Genero</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let animal of animales | filter:filterPost">
+                  <a [routerLink]="['/animal', animal.idanimal]" style="color:black"><td>{{animal.idanimal}}</td></a>
+                <td>{{animal.tipo}}</td>
+                <td>{{animal.raza}}</td>
+                <td>{{animal.genero}}</td>
+                <td>{{animal.estado}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    

@@ -1,0 +1,95 @@
+<h3>Add Usuario</h3>
+<div [hidden]="submitted">
+    <form #addUsuarioForm="ngForm">
+
+      <div class="form-group">
+        <label for="nombre">nombre</label>
+        <input type="text" class="form-control" id="nombre" placeholder="usuario nombre" 
+        required
+        [(ngModel)]="usuario.nombre" name="nombre" #nombre="ngModel">
+        <div [hidden]="nombre.valid || nombre.pristine"
+             class="alert alert-danger">
+             nombre is required
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="apellido">apellido</label>
+        <input type="text" class="form-control" id="apellido" placeholder="usuario apellido"
+        required
+        [(ngModel)]="usuario.apellido" name="apellido" #apellido="ngModel">
+        <div [hidden]="apellido.valid || apellido.pristine"
+             class="alert alert-danger">
+             apellido is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="fnacimiento">fnacimiento</label>
+        <input type="text" class="form-control" id="fnacimiento" placeholder="usuario fnacimiento"
+        required
+        [(ngModel)]="usuario.fnacimiento" name="fnacimiento" #fnacimiento="ngModel">
+        <div [hidden]="fnacimiento.valid || fnacimiento.pristine"
+             class="alert alert-danger">
+             fnacimiento is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">email</label>
+        <input type="text" class="form-control" id="email" placeholder="usuario email"
+        required
+        [(ngModel)]="usuario.email" name="email" #email="ngModel">
+        <div [hidden]="email.valid || email.pristine"
+             class="alert alert-danger">
+             email is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="telefono">telefono</label>
+        <input type="text" class="form-control" id="telefono" placeholder="usuario telefono"
+        required
+        [(ngModel)]="usuario.telefono" name="telefono" #telefono="ngModel">
+        <div [hidden]="telefono.valid || telefono.pristine"
+             class="alert alert-danger">
+             telefono is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="contrasenia">contrasenia</label>
+        <input type="text" class="form-control" id="contrasenia" placeholder="usuario contrasenia"
+        required
+        [(ngModel)]="usuario.contrasenia" name="contrasenia" #contrasenia="ngModel">
+        <div [hidden]="contrasenia.valid || contrasenia.pristine"
+             class="alert alert-danger">
+             contrasenia is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="imagen">imagen</label>
+        <input type="text" class="form-control" id="imagen" placeholder="usuario imagen"
+        required
+        [(ngModel)]="usuario.imagen" name="imagen" #imagen="ngModel">
+        <div [hidden]="imagen.valid || imagen.pristine"
+             class="alert alert-danger">
+             imagen is required
+        </div>
+      </div>
+      
+      <div class="btn-group btn-group-sm">
+      	<button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+      	<button type="button" class="btn btn-dark" (click)="addUsuario()" [disabled]="!addUsuarioForm.form.valid">Add</button>
+      </div>
+    </form>
+</div>
+
+<div [hidden]="!submitted">
+  <p>Submitted Successfully! -> <span class="badge badge-light">{{usuario.nombre}}  {{usuario.apellido}}  {{usuario.fnacimiento}}  {{usuario.email}}  {{usuario.telefono}}  {{usuario.contrasenia}}  {{usuario.imagen}}</span></p>
+	<div class="btn-group btn-group-sm">
+    	<button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+    	<button type="button" class="btn btn-dark" (click)="newusuario(); addusuarioForm.reset()">Continue</button>
+    </div>
+</div>
